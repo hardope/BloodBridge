@@ -10,7 +10,7 @@ def index(request):
         return redirect(reverse("authenticate"))
     return HttpResponse(f"Hello, {request.user}.... You're at the main index.")
 
-def authenticate(request):
+def authenticate_view(request):
     if request.method == "POST":
         if request.POST.get("action") == "login":
             username = request.POST.get("username")
