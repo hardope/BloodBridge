@@ -17,6 +17,7 @@ def authenticate_view(request):
 
             username = request.POST.get("username")
             password = request.POST.get("password")
+            print(f"Username: {username}, Password: {password}")
             user = authenticate(request, username=username, password=password)
             if user:
                 login(request, user)
@@ -46,6 +47,8 @@ def authenticate_view(request):
             email = request.POST.get("email")
             password = request.POST.get("password")
 
+            print(f"First Name: {first_name}, Last Name: {last_name}, Username: {username}, Email: {email}, Password: {password}")
+
             otp = request.POST.get("otp")
             if otp != "1234":
                 return JsonResponse({"success": False, "message": "Invalid OTP"})
@@ -61,3 +64,7 @@ def authenticate_view(request):
             return JsonResponse({"success": True})
 
     return render(request, "authenticate.html")
+
+def logout_view(request):
+    logout(request)
+    return redirect(reverse("authenticate")
