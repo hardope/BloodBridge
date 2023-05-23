@@ -18,11 +18,11 @@ function sign_in(){
         },
         success: function(data){
             console.log(data);
-            if(data == "success"){
+            if(data.success){
                 window.location.href = "/";
             }
             else{
-                $("#login_message").html(data);
+                $("#login_message").html(data.message);
             }
         }
     });
