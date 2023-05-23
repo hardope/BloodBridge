@@ -17,6 +17,7 @@ function sign_in(){
             "X-CSRFToken": csrftoken
         },
         success: function(data){
+            console.log(data.success);
             console.log(data);
             if(data.success){
                 window.location.href = "/";
