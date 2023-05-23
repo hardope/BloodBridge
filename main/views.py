@@ -64,4 +64,4 @@ def authenticate_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect(reverse("authenticate")
+    return redirect(reverse("authenticate"))
