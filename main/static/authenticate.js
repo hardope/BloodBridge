@@ -52,7 +52,7 @@ function sign_up(){
                 $('#verify_otp').show();
             }
             else{
-                $("#register_message").html(data.message);
+                $("#sign_up_message").html(data.message);
             }
         }
     });
