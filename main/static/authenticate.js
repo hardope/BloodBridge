@@ -3,8 +3,8 @@ function toggle(block) {
     $(block).show();
 }
 function sign_in(){
-    var username = $("#username").val();
-    var password = $("#password").val();
+    var username = $("#login #username").val();
+    var password = $("#login #password").val();
     $.ajax({
         url: "/authenticate/",
         method: "POST",
@@ -29,10 +29,10 @@ function sign_in(){
 }
 function sign_up(){
     $('sign_up_message').html('Signing up...');
-    var username = $("#username").val();
-    var password = $("#password").val();
-    var email = $("#email").val();
-    var confirm_password = $("#confirm_password").val();
+    var username = $("#sign_up #username").val();
+    var password = $("#sign_up#password").val();
+    var email = $("#sign_up #email").val();
+    var confirm_password = $("#sign_up #confirm_password").val();
     $.ajax({
         url: "/authenticate/",
         method: "POST",
@@ -61,9 +61,9 @@ function sign_up(){
 
 function verify_otp(){
     var otp = $("#otp").val();
-    var username = $("#username").val();
-    var password = $("#password").val();
-    var email = $("#email").val();
+    var username = $("#sig_up #username").val();
+    var password = $("#sign_up #password").val();
+    var email = $("#sign_up #email").val();
     var first_name = $("#first_name").val();
     var last_name = $("#last_name").val();
     $.ajax({
