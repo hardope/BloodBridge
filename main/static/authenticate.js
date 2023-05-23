@@ -28,6 +28,7 @@ function sign_in(){
     });
 }
 function sign_up(){
+    $('sign_up_message').html('Signing up...');
     var username = $("#username").val();
     var password = $("#password").val();
     var email = $("#email").val();
