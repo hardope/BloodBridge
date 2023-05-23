@@ -29,6 +29,7 @@ def authenticate_view(request):
             email = request.POST.get("email")
             password = request.POST.get("password")
             confirm_password = request.POST.get("confirm_password")
+            print(f"Username: {username}, Email: {email}, Password: {password}, Confirm Password: {confirm_password}"")
             if password != confirm_password:
                 return JsonResponse({"success": False, "message": "Password and Confirm Password do not match"})
             if User.objects.filter(username=username).exists():
