@@ -1,0 +1,25 @@
+input{
+    width: 500px;
+    padding: 10px;
+    height: 40px;
+    margin: 8px 0;
+    border: none;
+    background-color: azure;
+    border: 1px solid #ccc;
+}
+button{
+    width: 200px;
+    padding: 10px;
+    height: 40px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 15px;
+    background-color: #4CAF50;
+    color: white;
+}
+.blocks{
+    display: none;
+}
+#login{
+    display: block;
+}

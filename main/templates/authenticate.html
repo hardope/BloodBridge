@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{authenticate}}</title>
+    <link rel="stylesheet" href="/static/authenticate.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/static/authenticate.js"></script>
+    <script>
+        var csrftoken = '{{ csrf_token }}';
+    </script>
+</head>
+<body>
+    {% csrf_token %}
+    <center>
+
+    <div id="login" class="blocks">
+        <b id="login_message"></b>
+        <div>
+            <label for="username"><b>* Username</b></label><br>
+            <input type="text" name="username" id="username" placeholder="Username">
+        </div>
+        <div>
+            <label for="password"><b>* Password</b></label><br>
+            <input type="password" name="password" id="password" placeholder="Password">
+        </div>
+        <div>
+            <button id="login" onclick="sign_in()">Login</button>
+        </div>
+        <div>
+            <button onclick="toggle('#sign_up')">Create an Account</button>
+        </div>
+    </div>
+
+    <div id="sign_up" class="blocks">
+        <b id="sign_up_message"></b>
+        <div>
+            <label for="username"><b>* Username</b></label><br>
+            <input type="text" name="username" id="username" placeholder="Username">
+        </div>
+        <div>
+            <label for="email"><b>* Email</b></label><br>
+            <input type="email" name="email" id="email" placeholder="Email">
+        </div>
+        <div>
+            <label for="password"><b>* Password</b></h1</label><br>
+            <input type="password" name="password" id="password" placeholder="Password">
+        </div>
+        <div>
+            <label for="confirm_password"><b>* Confirm Password</b></label><br>
+            <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password">
+        </div>
+        <div>
+            <button id="sign_up">Sign Up</button>
+        </div>
+        <div>
+            <button onclick="toggle('#login')">Have an account?, Login</button>
+        </div>
+    </div>
+
+    <div id="verify_otp" class="blocks">
+        <div>
+            <label for="first_name"><b>* First Name</b></label><br>
+            <input type="text" name="first_name" id="first_name" placeholder="First Name">
+        </div>
+        <div>
+            <label for="last_name"><b>* Last Name</b></label><br>
+            <input type="text" name="last_name" id="last_name" placeholder="Last Name">
+        </div>
+        <div>
+            <label for="otp"><b>* OTP</b></label><br>
+            <input type="text" name="otp" id="otp" placeholder="OTP">
+        </div>
+        <div>
+            <button id="verify_otp">Verify OTP</button>
+        </div>
+    </div>
+</center>
+</body>
+</html>
