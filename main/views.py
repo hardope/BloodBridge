@@ -60,7 +60,7 @@ def authenticate_view(request):
 
             return JsonResponse({"success": True})
 
-    return render(request, "authenticate.html")
+    return render(request, "0-authenticate.html")
 
 def logout_view(request):
     logout(request)
