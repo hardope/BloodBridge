@@ -61,7 +61,7 @@ function sign_up(){
 
 function verify_otp(){
     var otp = $("#otp").val();
-    var username = $("#sig_up #username").val();
+    var username = $("#sign_up #username").val();
     var password = $("#sign_up #password").val();
     var email = $("#sign_up #email").val();
     var first_name = $("#first_name").val();
