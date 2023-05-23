@@ -30,7 +30,7 @@ function sign_in(){
 function sign_up(){
     $('sign_up_message').html('Signing up...');
     var username = $("#sign_up #username").val();
-    var password = $("#sign_up#password").val();
+    var password = $("#sign_up #password").val();
     var email = $("#sign_up #email").val();
     var confirm_password = $("#sign_up #confirm_password").val();
     $.ajax({
