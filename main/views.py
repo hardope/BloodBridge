@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from .sendmail import sendmail
 from .models import Otp
 import random
-from datetime import datetime
+from datetime import datetime, timezone
 
 # Create your views here.
 def index(request):
