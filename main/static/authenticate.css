@@ -13,7 +13,16 @@ input{
     background-color: azure;
     border: 1px solid #ccc;
 }
-button{
+.buttons{
+    padding: 5px;
+    margin: 0.5rem;
+}
+
+.buttons #login{
+    margin-bottom: 1.5rem;
+}
+
+/* button{
     width: 200px;
     padding: 10px;
     height: 40px;
@@ -22,7 +31,7 @@ button{
     border-radius: 15px;
     background-color: #4CAF50;
     color: white;
-}
+} */
 .blocks{
     display: none;
 }
