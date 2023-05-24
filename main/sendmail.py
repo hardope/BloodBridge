@@ -4,7 +4,7 @@ import ssl
 import smtplib
 
 
-def send_mail(to, subject, body):
+def sendmail(to, subject, body):
     with open("password", 'r') as f:
         password = f.read()
     sender = "clickviralng@gmail.com"
