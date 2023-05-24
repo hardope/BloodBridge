@@ -55,7 +55,7 @@ def authenticate_view(request):
             email = request.POST.get("email")
             password = request.POST.get("password")
 
-            otp = request.POST.get("otp")
+            otp = request.POST.get("otp").strip()
             try:
                 otp = Otp.objects.get(username=username, mail=email)
                 otp.tries += 1
@@ -63,6 +63,7 @@ def authenticate_view(request):
             except:
                 return JsonResponse({"success": False, "message": "Invalid OTP"})
             confirm = Otp.objects.get(username=username, mail=email).otp
+            print(otp == confirm)
             if otp != confirm:
                 return JsonResponse({"success": False, "message": "Invalid OTP"})
             elif Otp.objects.get(username=username, mail=email).tries >= 5:
