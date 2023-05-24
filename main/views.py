@@ -40,6 +40,10 @@ def authenticate_view(request):
             if User.objects.filter(email=email).exists():
                 return JsonResponse({"success": False, "message": "Email already exists"})
 
+            try:
+                Otp.objects.get(username=username, mail=email).delete()
+            except:
+                pass
             otp = Otp.objects.create(mail=email, username=username, otp=random.randint(100000, 999999))
             otp.save()
 
@@ -63,8 +67,6 @@ def authenticate_view(request):
             except:
                 return JsonResponse({"success": False, "message": "Invalid OTP"})
             confirm = Otp.objects.get(username=username, mail=email).otp
-            print(f"System Otp{confirm}, collected otp{otp}")
-            print(str(otp) == str(confirm))
             if otp != confirm:
                 return JsonResponse({"success": False, "message": "Invalid OTP"})
             elif Otp.objects.get(username=username, mail=email).tries >= 5:
