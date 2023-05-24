@@ -5,7 +5,7 @@ import smtplib
 
 
 def sendmail(to, subject, body):
-    with open(f"{os.getcwd()}password.txt", 'r') as f:
+    with open(f"{os.getcwd()}/main/password.txt", 'r') as f:
         password = f.read()
     sender = "clickviralng@gmail.com"
     recipient = to
