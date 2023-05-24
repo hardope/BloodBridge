@@ -58,9 +58,12 @@ def authenticate_view(request):
             otp = request.POST.get("otp")
             try:
                 otp = Otp.objects.get(username=username, mail=email)
+                print(f"Otp: {otp.otp}")
                 otp.tries += 1
+                print("here")
                 otp.save()
             except:
+                print("Invalid OTP")
                 return JsonResponse({"success": False, "message": "Invalid OTP"})
             if otp != Otp.objects.get(username=username, mail=email).otp:
                 return JsonResponse({"success": False, "message": "Invalid OTP"})
