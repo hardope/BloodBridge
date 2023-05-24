@@ -75,7 +75,7 @@ def authenticate_view(request):
                 Otp.objects.get(username=username, mail=email).delete()
                 return JsonResponse({"success": False, "message": "Too many tries. Please try again later."})
             
-            created = otp.created_at
+            created = Otp.objects.get(username=username, mail=email).created_at
             now = datetime.now(timezone.utc)
             diff = now - created
 
