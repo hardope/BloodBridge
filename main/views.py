@@ -12,7 +12,11 @@ from datetime import datetime, timezone
 def index(request):
     if not request.user.is_authenticated:
         return redirect(reverse("authenticate"))
-    return HttpResponse(f"Hello, {request.user}.... You're at the main index.")
+    return render(request, 'index.html')
+
+def about(request):
+    return render(request, 'about.html')
+
 
 def authenticate_view(request):
     if request.method == "POST":

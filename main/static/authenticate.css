@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Raleway:wght@200&display=swap');
+
+body{
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Raleway', sans-serif;
+}
 input{
     width: 500px;
     padding: 10px;
