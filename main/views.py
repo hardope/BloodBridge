@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from .sendmail import sendmail
 from .models import Otp
 import random
+from datetime import datetime
 
 # Create your views here.
 def index(request):
@@ -66,12 +67,20 @@ def authenticate_view(request):
                 update_otp.save()
             except:
                 return JsonResponse({"success": False, "message": "Invalid OTP"})
+
             confirm = Otp.objects.get(username=username, mail=email).otp
             if otp != confirm:
                 return JsonResponse({"success": False, "message": "Invalid OTP"})
-            elif Otp.objects.get(username=username, mail=email).tries >= 5:
+            if Otp.objects.get(username=username, mail=email).tries >= 5:
                 Otp.objects.get(username=username, mail=email).delete()
                 return JsonResponse({"success": False, "message": "Too many tries. Please try again later."})
+            
+            created = otp.created_at
+            now = datetime.now(timezone.utc)
+            diff = now - created
+
+            if diff.total_seconds() > 43200:
+                return JsonResponse({"success": False, "message": "OTP Expired. Please try again."})
 
             user = User.objects.create_user(username=username, email=email, password=password)
             user.save()
