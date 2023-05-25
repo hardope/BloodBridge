@@ -10,15 +10,14 @@ from datetime import datetime, timezone
 
 # Create your views here.
 def index(request):
-    if not request.user.is_authenticated:
-        return redirect(reverse("authenticate"))
     return render(request, 'index.html')
 
 def about(request):
     return render(request, 'about.html')
 
-
 def authenticate_view(request):
+    if request.user.is_authenticated:
+        return redirect(reverse("index"))
     if request.method == "POST":
 
         if request.POST.get("action") == "login":
