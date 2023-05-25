@@ -37,8 +37,8 @@ function validateEmail(email) {
 }
 
 function sign_up(){
-    $('sign_up_message').html('Signing up...');
-    $('sign_up_button').html('<image src="/static/images/loading.gif" width="60px">')
+    $('#sign_up_message').html('Signing up...');
+    $('s#ign_up_button').html('<image src="/static/images/loading.gif" width="60px">')
     var username = $("#sign_up #username").val();
     var password = $("#sign_up #password").val();
     var email = $("#sign_up #email").val();
