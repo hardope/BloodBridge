@@ -4,7 +4,7 @@ function toggle(block) {
 }
 function sign_in(){
     $('#login_message').html('Logging in...');
-    $('#login_button').html('<image src="/static/images/loading.gif" width="20px" height="20px">')
+    $('#login_button').html('<image src="/static/images/loading.gif" width="60px" height="20px">')
     var username = $("#login #username").val();
     var password = $("#login #password").val();
     $.ajax({
@@ -32,6 +32,7 @@ function sign_in(){
 }
 function sign_up(){
     $('sign_up_message').html('Signing up...');
+    $('sign_up_button').html('<image src="/static/images/loading.gif" width="60px" height="20px">')
     var username = $("#sign_up #username").val();
     var password = $("#sign_up #password").val();
     var email = $("#sign_up #email").val();
@@ -57,12 +58,15 @@ function sign_up(){
             }
             else{
                 $("#sign_up_message").html(data.message);
+                $('#sign_up_button').html('Sign Up');
             }
         }
     });
 }
 
 function verify_otp(){
+    $("#verify_otp_message").html('Verifying OTP...');
+    $("#verify_otp_button").html('<image src="/static/images/loading.gif" width="60px" height="20px">')
     var otp = $("#otp").val();
     var username = $("#sign_up #username").val();
     var password = $("#sign_up #password").val();
@@ -91,6 +95,7 @@ function verify_otp(){
             }
             else{
                 $("#verify_otp_message").html(data.message);
+                $("#verify_otp_button").html('Verify OTP');
             }
         }
     });
