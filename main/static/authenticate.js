@@ -3,6 +3,8 @@ function toggle(block) {
     $(block).show();
 }
 function sign_in(){
+    $('#login_message').html('Logging in...');
+    $('#login_button').html('<image src="/static/images/loading.gif" width="20px" height="20px">')
     var username = $("#login #username").val();
     var password = $("#login #password").val();
     $.ajax({
@@ -22,6 +24,7 @@ function sign_in(){
                 window.location.href = "/";
             }
             else{
+                $('#login_button').html('Login');
                 $("#login_message").html(data.message);
             }
         }
