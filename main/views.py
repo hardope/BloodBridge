@@ -109,7 +109,4 @@ class Appointment_form(CreateView):
     model = Appointment
     template_name = 'appointment_form.html'
     fields = ['reason', 'contact']
-
-    def form_valid(self, form):
-        form.instance.donor = self.request.user
-        return super().form_valid(form)
+    
