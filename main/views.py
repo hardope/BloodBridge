@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from .sendmail import sendmail
 from .models import Otp, Appointment
 import random
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from datetime import datetime, timezone
 from django.views.generic import CreateView
 
@@ -105,8 +106,7 @@ def logout_view(request):
     logout(request)
     return redirect(reverse("authenticate"))
 
-class Appointment_form(CreateView):
+class Appointment_form(LoginRequiredMixin, CreateView):
     model = Appointment
     template_name = 'appointment_form.html'
     fields = ['reason', 'contact']
-    
