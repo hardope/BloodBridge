@@ -1,2 +1,4 @@
 django
 datetime
+django-crispy-forms
+crispy_bootstrap5
