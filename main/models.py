@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import datetime
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 # Create your models here.
 class Otp(models.Model):
@@ -17,3 +18,13 @@ class Profile(models.Model):
     city = models.CharField(max_length=100, default='')
     state = models.CharField(max_length=100, default='')
     donor = models.BooleanField(default=True)
+
+
+class Appointment(models.Model):
+    reason = models.CharField(max_length=120)
+    contact = models.CharField(max_length=20)
+    donor  = models.ForeignKey(User, on_delete=models.CASCADE)
+    date_create = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.reason

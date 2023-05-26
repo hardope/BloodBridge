@@ -4,9 +4,10 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib.auth.models import User
 from .sendmail import sendmail
-from .models import Otp
+from .models import Otp, Appointment
 import random
 from datetime import datetime, timezone
+from django.views.generic import CreateView
 
 # Create your views here.
 def index(request):
@@ -103,3 +104,12 @@ def authenticate_view(request):
 def logout_view(request):
     logout(request)
     return redirect(reverse("authenticate"))
+
+class Appointment_form(CreateView):
+    model = Appointment
+    template_name = 'appointment_form.html'
+    fields = ['reason', 'contact']
+
+    def form_valid(self, form):
+        form.instance.donor = self.request.user
+        return super().form_valid(form)
